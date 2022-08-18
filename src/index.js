@@ -5,7 +5,7 @@ import { store } from "./app/store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Socket from "./components/Socket/Socket";
 import Header from "./components/Header";
 import Explore from "./features/Explore/Explore";

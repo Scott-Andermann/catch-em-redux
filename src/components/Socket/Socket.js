@@ -8,7 +8,7 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 // const HOST = window.location.origin.replace(/^http/, "wss");
 // const client = new W3CWebSocket(HOST);
 // update to 'wss://catch-em-server....
-const client = new W3CWebSocket('ws://localhost:8000');
+const client = new W3CWebSocket('wss://catch-em-server.herokuapp.com');
 
 export const sendData = () => {
   client.send("from client");
@@ -27,7 +27,7 @@ const Socket = () => {
     client.onmessage = (message) => {
       dispatch(addMessage(message.data));
     };
-  }, []);
+  }, [dispatch]);
 
   return <></>;
 };
