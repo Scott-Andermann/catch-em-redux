@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
+// import { useLocation } from "react-router-dom";
 import { addMessage } from "../../features/Messages/messagesSlice";
 import { useDispatch } from "react-redux";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-const HOST = location.origin.replace(/^http/, "ws");
+// const location = useLocation();
+const HOST = window.location.origin.replace(/^http/, "ws");
 const client = new W3CWebSocket(HOST);
 
 export const sendData = () => {
