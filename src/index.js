@@ -1,21 +1,18 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './index.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link
-} from 'react-router-dom';
-import Header from './components/Header';
-import Explore from './features/Explore/Explore';
-import Pokedex from './features/Pokedex/Pokedex';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Socket from "./components/Socket/Socket";
+import Header from "./components/Header";
+import Explore from "./features/Explore/Explore";
+import Pokedex from "./features/Pokedex/Pokedex";
+import Chat from "./components/Chat";
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
@@ -23,11 +20,13 @@ root.render(
     <Router>
       <Header />
       <Provider store={store}>
+        <Socket />
         <Routes>
-          <Route path='/' element={<App />}/>
-          <Route path='/explore' element={<Explore />} />
-          <Route path='/pokedex' element={<Pokedex />} />
+          <Route path="/" element={<App />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/pokedex" element={<Pokedex />} />
         </Routes>
+        <Chat />
       </Provider>
     </Router>
   </React.StrictMode>
