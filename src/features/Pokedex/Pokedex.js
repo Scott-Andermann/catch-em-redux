@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { selectCaught, selectFilterCaught, trainPokemon } from "./pokedexSlice";
+import { selectFilterCaught, trainPokemon } from "./pokedexSlice";
 import PokedexSearch from "./PokedexSearch";
 
 
@@ -29,7 +29,7 @@ const Pokedex = () => {
                 pokemonCaught.map(pokemon => (
                     <div>
                         <h3>{pokemon.name}</h3>
-                        <img src={pokemon.src} />
+                        <img src={pokemon.src} alt={pokemon.name}/>
                         <h4>Stats</h4>
                         <table>
                             <thead>

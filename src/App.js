@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { addName } from "./features/Home/homeSlice";
-import { sendData } from "./components/Socket/Socket";
 import { useDispatch } from "react-redux";
 import "./App.css";
 

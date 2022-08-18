@@ -80,7 +80,7 @@ const Explore = () => {
       setAlreadySeen(false);
       dispatch(addSeen(pokemon.name));
     } else setAlreadySeen(true);
-  }, [pokemon]);
+  }, [pokemon, dispatch, pokedexCurr, pokemonCaught]);
 
   return (
     <div>
@@ -92,7 +92,6 @@ const Explore = () => {
       {Object.keys(pokemon).length !== 0 && (
         <div>
           <h3>{pokemon.name}</h3>
-          <h4></h4>
           <img src={pokemon.sprites.front_default} alt={`${pokemon.name}`} />
           <p>{alreadySeen && `You have already seen ${pokemon.name}`}</p>
           <button onClick={catchPokemon} disabled={alreadyCaught}>
