@@ -15,7 +15,6 @@ const Explore = () => {
   const pokemonCaught = useSelector(selectCaught);
   const user = useSelector(selectName);
   const [pokemon, setPokemon] = useState({});
-  const [alreadySeen, setAlreadySeen] = useState(false);
   const [alreadyCaught, setAlreadyCaught] = useState(false);
   const [pokeId, setPokeId] = useState(Math.ceil(Math.random() * 151));
   const [tries, setTries] = useState(0);
@@ -77,9 +76,8 @@ const Explore = () => {
 
     // has the pokemon been seen yet? if so display a message, if not, add to array of seen pokemon
     if (pokemon.name && !pokedexCurr.includes(pokemon.name)) {
-      setAlreadySeen(false);
       dispatch(addSeen(pokemon.name));
-    } else setAlreadySeen(true);
+    }
   }, [pokemon, dispatch, pokedexCurr, pokemonCaught]);
 
   return (
@@ -93,7 +91,7 @@ const Explore = () => {
         <div>
           <h3>{pokemon.name}</h3>
           <img src={pokemon.sprites.front_default} alt={`${pokemon.name}`} />
-          <p>{alreadySeen && `You have already seen ${pokemon.name}`}</p>
+          <br></br>
           <button onClick={catchPokemon} disabled={alreadyCaught}>
             Try to Catch {pokemon.name}
           </button>
