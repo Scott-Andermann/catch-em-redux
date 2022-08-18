@@ -36,7 +36,7 @@ const Explore = () => {
 
   const catchPokemon = () => {
     const catchValue = Math.random();
-    if (catchValue > 0.01) {
+    if (catchValue > 0.5) {
       dispatch(
         addCaught({
           id: pokemon.id,

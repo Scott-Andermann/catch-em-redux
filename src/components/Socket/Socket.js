@@ -5,8 +5,9 @@ import { useDispatch } from "react-redux";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
 // const location = useLocation();
-const HOST = window.location.origin.replace(/^http/, "ws");
+const HOST = window.location.origin.replace(/^http/, "wss");
 const client = new W3CWebSocket(HOST);
+// const client = new W3CWebSocket('ws://localhost:8000');
 
 export const sendData = () => {
   client.send("from client");
