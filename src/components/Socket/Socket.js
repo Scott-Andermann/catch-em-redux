@@ -3,7 +3,8 @@ import { addMessage } from "../../features/Messages/messagesSlice";
 import { useDispatch } from "react-redux";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-const client = new W3CWebSocket("ws://127.0.0.1:8080");
+const HOST = location.origin.replace(/^http/, "ws");
+const client = new W3CWebSocket(HOST);
 
 export const sendData = () => {
   client.send("from client");
