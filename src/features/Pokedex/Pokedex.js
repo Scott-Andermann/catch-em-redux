@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { selectFilterCaught, trainPokemon } from "./pokedexSlice";
+import { useSelector} from "react-redux";
+import { selectFilterCaught} from "./pokedexSlice";
 import PokedexSearch from "./PokedexSearch";
 import Card from './Card';
 import ZoomCard from './ZoomCard';
@@ -8,7 +8,6 @@ import './Pokedex.css';
 
 
 const Pokedex = () => {
-    const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState('');
     const [pokeId, setPokeId] = useState(0);
 

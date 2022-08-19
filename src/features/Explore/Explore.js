@@ -7,7 +7,7 @@ import {
 } from "../Pokedex/pokedexSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectName } from "../Home/homeSlice";
-import { sendCaughtNotification, sendMessage } from "../../components/Socket/Socket";
+import { sendCaughtNotification } from "../../components/Socket/Socket";
 
 const Explore = () => {
   const dispatch = useDispatch();
