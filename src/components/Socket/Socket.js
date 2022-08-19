@@ -4,19 +4,22 @@ import { addMessage } from "../../features/Messages/messagesSlice";
 import { useDispatch } from "react-redux";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-// const location = useLocation();
-// const HOST = window.location.origin.replace(/^http/, "wss");
-// const client = new W3CWebSocket(HOST);
-// update to 'wss://catch-em-server....
-const client = new W3CWebSocket('wss://catch-em-server.herokuapp.com');
+// uncomment for deploy
+// const client = new W3CWebSocket('wss://catch-em-server.herokuapp.com');
+
+const client = new W3CWebSocket('ws://localhost:8000');
 
 export const sendData = () => {
   client.send("from client");
 };
 
-export const sendCaughtNotification = ({ user, name }) => {
-  client.send(`${user} says: I just caught a ${name}`);
+export const sendCaughtNotification = ({ userName, name }) => {
+  client.send(JSON.stringify({userName: userName, message: `I just caught a ${name}`}));
 };
+
+export const sendMessage = ({userName, message}) => {
+  client.send(JSON.stringify({userName: userName, message: message}))
+}
 
 const Socket = () => {
   const dispatch = useDispatch();

@@ -49,11 +49,16 @@ wsServer.on("request", function (request) {
 
   connection.on("message", function (message) {
     console.log("this is a server message");
-    // console.log(JSON.stringify(message.utf8Data));
-    console.log(userID + " " + message.utf8Data);
+    try {
+    parsed = JSON.parse(message.utf8Data);
+    // console.log(parsed);
+    console.log(userID + " " + parsed.userName + " " + parsed.message);
     Object.keys(clients).map((client) => {
-      clients[client].send("from the server: " + message.utf8Data);
+      clients[client].send(parsed.userName + ': ' + parsed.message);
     });
+  } catch (e) {
+    console.log('There was something wrong with the message: ' + e)
+  }
   });
 
   connection.on("close", function (connection) {

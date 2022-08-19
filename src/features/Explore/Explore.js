@@ -7,7 +7,7 @@ import {
 } from "../Pokedex/pokedexSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectName } from "../Home/homeSlice";
-import { sendCaughtNotification } from "../../components/Socket/Socket";
+import { sendCaughtNotification, sendMessage } from "../../components/Socket/Socket";
 
 const Explore = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ const Explore = () => {
   const [alreadyCaught, setAlreadyCaught] = useState(false);
   const [pokeId, setPokeId] = useState(Math.ceil(Math.random() * 151));
   const [tries, setTries] = useState(0);
+
 
   const fetchPokemon = async () => {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
@@ -52,7 +53,7 @@ const Explore = () => {
         })
       );
       sendCaughtNotification({
-        user: user,
+        userName: user,
         name: pokemon.name,
       });
       alert(`Congratulations you caught ${pokemon.name}`);
@@ -95,6 +96,7 @@ const Explore = () => {
           <button onClick={catchPokemon} disabled={alreadyCaught}>
             Try to Catch {pokemon.name}
           </button>
+
         </div>
       )}
     </div>
