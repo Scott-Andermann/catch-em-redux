@@ -29,5 +29,6 @@ export const { addSeen, addCaught, trainPokemon } = pokedexSlice.actions;
 export const selectSeen = (state) => state.pokedexReducer.pokemonSeen;
 export const selectCaught = (state) => state.pokedexReducer.pokemonCaught;
 export const selectFilterCaught = (state, searchTerm) => state.pokedexReducer.pokemonCaught.filter(element => element.name.includes(searchTerm));
+export const selectFilterId = (state, pokeId) => state.pokedexReducer.pokemonCaught.filter(element => element.id === pokeId)
 
 export default pokedexSlice.reducer;

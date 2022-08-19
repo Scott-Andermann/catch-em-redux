@@ -93,9 +93,10 @@ const Explore = () => {
           <h3>{pokemon.name}</h3>
           <img src={pokemon.sprites.front_default} alt={`${pokemon.name}`} />
           <br></br>
-          <button onClick={catchPokemon} disabled={alreadyCaught}>
+          {alreadyCaught ? <p>You have already caught {pokemon.name}</p> : 
+          <button onClick={catchPokemon}>
             Try to Catch {pokemon.name}
-          </button>
+          </button>}
 
         </div>
       )}

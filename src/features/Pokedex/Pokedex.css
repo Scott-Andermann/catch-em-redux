@@ -1,0 +1,56 @@
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
+    width: 150px;
+    margin: 5px;
+    border: 5px solid gold;
+    border-radius: 5px;
+}
+
+.card:hover {
+    background-color:rgba(53, 53, 184, 0.2);
+}
+
+.card img {
+    border: 2px solid gold;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.zoom-card-overlay {
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.zoom-card {
+    height: 80%;
+    width: 80%;
+    border: 5px solid gold;
+    border-radius: 10px;
+    background: rgb(53, 53, 184);
+    color: white;
+}
+
+.zoom-card img {
+    height: 80px;
+}

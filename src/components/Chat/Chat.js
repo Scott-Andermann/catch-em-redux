@@ -21,11 +21,11 @@ const Chat = () => {
     setMessage('')
   }
 
-  console.log(isMinimize);
+  // console.log(isMinimize);
 
   return (
-    <div className='chatbox' style={isMinimize ? {height: 60} : {height: 265}}>
-      <button onClick={() => setIsMinimize(!isMinimize)}>Minimize</button>
+    <div className='chatbox' style={isMinimize ? {height: 41} : {height: 265}}>
+      <button className='minimize-button' onClick={() => setIsMinimize(!isMinimize)}>{isMinimize ? 'Maximize' : 'Minimize'}</button>
       { isMinimize ? <></> : 
         <ul className='message-box'>
         {messages.slice(-10).map((message) => (
@@ -34,7 +34,7 @@ const Chat = () => {
       </ul> }
         <form className='message-form' onSubmit={onSubmit}>
           <input type='text' value={message} onChange={messageChange}></input>
-          <button type='submit'>Send message to server</button>
+          <button type='submit'>Send Message</button>
         </form>
     </div>
   );
