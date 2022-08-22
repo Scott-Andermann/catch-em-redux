@@ -13,6 +13,7 @@ const wsServer = new webSocketServer({
 });
 
 const clients = {};
+var users = {};
 
 const generateUniqueId = () => {
   const s4 = () =>
@@ -36,6 +37,7 @@ const typesDef = {
 wsServer.on("request", function (request) {
   var userID = generateUniqueId();
 
+
   console.log(
     new Date() + " Received new connection from origin " + request.origin
   );
@@ -43,22 +45,36 @@ wsServer.on("request", function (request) {
   const connection = request.accept(null, request.origin);
 
   clients[userID] = connection;
+  users[userID] = 'Unknown'
   console.log(
     "connected: " + userID + " in " + Object.getOwnPropertyNames(clients)
   );
 
   connection.on("message", function (message) {
-    console.log("this is a server message");
+    console.log(users);
+    // console.log(connection)
+    // console.log("this is a server message");
     try {
-    parsed = JSON.parse(message.utf8Data);
-    // console.log(parsed);
-    console.log(userID + " " + parsed.userName + " " + parsed.message);
-    Object.keys(clients).map((client) => {
-      clients[client].send(parsed.userName + ': ' + parsed.message);
-    });
-  } catch (e) {
-    console.log('There was something wrong with the message: ' + e)
-  }
+      parsed = JSON.parse(message.utf8Data);
+      if (parsed.type === 'message') {
+        console.log(userID + " " + parsed.userName + " " + parsed.message);
+        Object.keys(clients).map((client) => {
+          clients[client].send(JSON.stringify({type: 'chat', post: parsed.userName + ': ' + parsed.message}));
+        });
+      } else if (parsed.type === 'userUpdate') {
+        console.log(parsed.userName);
+      // update user list with new name
+        users[userID] = parsed.userName;
+        const userList = [];
+        Object.keys(users).map(key => userList.push(users[key]))
+        Object.keys(clients).map((client) => {
+          clients[client].send(JSON.stringify({type: 'user', users: userList}));
+        })
+      }
+
+    } catch (e) {
+      console.log('There was something wrong with the message: ' + e)
+    }
   });
 
   connection.on("close", function (connection) {

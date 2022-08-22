@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { addName, selectName } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { sendUserUpdate } from "../../components/Socket/Socket";
 import "./Home.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       dispatch(addName(name));
       alert(`Name changed to: ${name}`)
       setStored(true);
+      sendUserUpdate({userName: name});
     }
   };
 
