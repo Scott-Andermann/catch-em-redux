@@ -6,9 +6,9 @@ import { useDispatch } from "react-redux";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
 // uncomment for deploy
-// const client = new W3CWebSocket('wss://catch-em-server.herokuapp.com');
+const client = new W3CWebSocket('wss://catch-em-server.herokuapp.com');
 
-const client = new W3CWebSocket('ws://localhost:8000');
+// const client = new W3CWebSocket('ws://localhost:8000');
 
 export const sendData = () => {
   client.send("from client");
