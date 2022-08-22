@@ -1,0 +1,22 @@
+.menu-body {
+    position: relative;
+    display: flex;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    background-color: gray;
+}
+
+.arrow {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 50vh;
+    height: 100px;
+    width: 40px;
+    background-color: gray;
+    border-radius: 0 10px 10px 0;
+}
