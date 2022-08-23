@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Socket from "./components/Socket/Socket";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Explore from "./features/Explore/Explore";
 import Pokedex from "./features/Pokedex/Pokedex";
 import Chat from "./components/Chat/Chat";
