@@ -80,6 +80,7 @@ wsServer.on("request", function (request) {
   connection.on("close", function (connection) {
     console.log(new Date() + " Peer " + userID + " disconnected.");
     delete clients[userID];
+    delete users[userID];
     const jsonEvent = { type: "user_event" };
   });
 });
