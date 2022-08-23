@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { addName, selectName } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { sendUserUpdate } from "../../components/Socket/Socket";
