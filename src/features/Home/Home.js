@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { addName, selectName } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { sendUserUpdate } from "../../components/Socket/Socket";
+import { selectUsers } from "../Users/usersSlice";
 import "./Home.css";
 
 function App() {
   const dispatch = useDispatch();
   const [name, setName] = useState(useSelector(selectName));
+  const users = useSelector(selectUsers);
   const [stored, setStored] = useState(false);
 
   const onChange = (e) => {
@@ -17,6 +20,7 @@ function App() {
       dispatch(addName(name));
       alert(`Name changed to: ${name}`)
       setStored(true);
+      sendUserUpdate({userName: name});
     }
   };
 
@@ -43,6 +47,7 @@ function App() {
     <div className="App">
       <h2>Homepage</h2>
       {stored ? welcomeForm() : nameForm()}
+      {users.length > 0 && users.map(user => <p>{user}</p>)}
     </div>
   );
 }
