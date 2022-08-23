@@ -1,39 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Menu.css';
 import ListElement from "./ListElement";
 import { arrow, exitButton } from "../../resources/svgart";
 
-const ArrowDiv = styled.div`
-position: relative;
-left: 0;
-top: 50vh;
-height: 80px;
-width: 20px;
-background-color: gray;
-`
-
-const MenuBody = styled.div`
-position: relative;
-left: 0;
-top: 0;
-height: 100%;
-width: 400px;
-background-color: gray;
-`
-
 const MenuList = styled.ul`
 list-style: none;
 width: 100%;
 height: 100%;
 padding-top: 15vh;
-`
-
-const BreakDiv = styled.div`
-flex-basis: 100%;
-height: 0
 `
 
 const moreElements = ['one', 'two', 'three', 'four']
