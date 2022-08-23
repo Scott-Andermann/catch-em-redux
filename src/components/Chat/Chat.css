@@ -1,16 +1,17 @@
-.chatbox {
+/* .chatbox {
     position: fixed;
     bottom: 0;
     left: 0;
     height: 265px;
     width: 400px;
     background-color: #f2f2f2;
-}
+} */
 
 .message-box {
     height: 200px;
     width: 100%;
     list-style: none;
+    padding-inline-start: 0;
 }
 
 .message-form {
@@ -18,7 +19,27 @@
     bottom: 10px;
     left: 10px;
 }
-
+/* 
 .minimize-button {
     float: right;
+} */
+
+.button-container {
+    cursor: pointer;
+    width: 35px;
+    float:right;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
 }
