@@ -12,6 +12,7 @@
     width: 100%;
     list-style: none;
     padding-inline-start: 0;
+    overflow: auto;
 }
 
 .message-form {

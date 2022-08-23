@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectMessages } from "../../features/Messages/messagesSlice";
 import { selectName } from "../../features/Home/homeSlice";
@@ -26,7 +26,7 @@ padding: 3px;
 const Bar = styled.div`
 width: 35px;
 height: 5px;
-background-color: orange;
+background-color: black;
 margin: 6px 0;
 transition-delay: 0.4s;
 transition: 0.4s;
@@ -73,13 +73,14 @@ const Chat = () => {
             animate={{ height: '265px' }}
             exit={{ height: 0, visibility: 'hidden' }}>
             <ul className='message-box'>
-              {messages.slice(-10).map((message) => (
-                <li>{message}</li>
+              {messages.map((message) => (
+                <li style={{overflowAnchor: 'none'}}>{message}</li>
               ))}
+              <li style={{overflowAnchor: 'auto', height: '1px'}}></li>
             </ul>
             <form className='message-form' onSubmit={onSubmit}>
               <input type='text' value={message} onChange={messageChange}></input>
-              <button type='submit'>Send Message</button>
+              <button type='submit'>Send</button>
             </form>
           </motion.div>}
           </AnimatePresence>
